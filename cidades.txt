@@ -1,0 +1,22 @@
+100
+20
+8 Birnin Zana
+4 Birnin S'Yan
+15 K’pur
+18 L’pur
+23 WestPort
+30 FortPort
+35 NorthLabury
+40 WestPort_2
+45 NewEford
+50 EastUland
+55 SouthIford
+60 SouthLabury
+65 NorthValley
+70 NewEford_2
+75 NorthIford
+80 FortPort_2
+85 SouthIford_2
+90 FortZoton
+95 WestOtown
+99 SouthValley
