@@ -49,7 +49,7 @@ Estrada *readFile(const char *nomeArquivo)
         return NULL;
     }
 
-    if (data->T <= 3 || data->T >= 1000000)
+    if (data->T < 3 || data->T > 1000000)
     {
         free(data);
         fclose(arq);
@@ -63,7 +63,7 @@ Estrada *readFile(const char *nomeArquivo)
         return NULL;
     }
 
-    if (data->N <= 2 || data->N >= 10000)
+    if (data->N < 2 || data->N > 10000)
     {
         free(data);
         fclose(arq);
