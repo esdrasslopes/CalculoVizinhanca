@@ -14,13 +14,26 @@ int main()
                "Xi ≠ Xj, para todo par 1 ≤ i, j ≤ N\n");
     }else{
         double menorVizinhanca = calcularMenorVizinhanca("cidades.txt");
-        
-        printf("A menor vizinhanca e de %.2f\n", menorVizinhanca);
+
+        if(menorVizinhanca == -1)
+        {
+            printf("Não foi possível calcular a menor vizinhança");
+        }else
+        {
+            printf("A menor vizinhanca e de %.2f\n", menorVizinhanca);
+        }
 
         char *nome = cidadeMenorVizinhanca("cidades.txt");
 
-        printf("A cidade com a menor vizinhanca e: %s", nome);
 
+        if(nome == NULL)
+        {
+            printf("Não foi possível calcular a menor vizinhança");
+        }else
+        {
+            printf("A cidade com a menor vizinhanca e: %s", nome);
+        }
+        
         free(nome);
     }
 
