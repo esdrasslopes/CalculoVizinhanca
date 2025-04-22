@@ -10,25 +10,57 @@ typedef struct
     int posicao;
 } Vizinhanca;
 
-void OrdenedByPosition(Cidade *data, int tamanho)
+
+void swap(Cidade *a, Cidade *b)
 {
-    int i, j;
+    Cidade temp = *a;
 
-    for (i = 0; i < tamanho - 1; i++)
+    *a = *b;
+
+    *b = temp;
+}
+
+int partition(Cidade *data, int low, int high)
+{
+    Cidade *pivot = &data[(low + high) / 2];
+
+    int i = low;
+
+    int j = high;
+
+    while(i < j)
     {
-        for (j = i + 1; j < tamanho; j++)
+
+        while(data[i].Posicao < pivot->Posicao)
         {
-            if (data[i].Posicao > data[j].Posicao)
-            {
-                Cidade aux = data[i];
+            i++;
+        }
 
-                data[i] = data[j];
+        while(data[j].Posicao > pivot->Posicao)
+        {
+            j--;
+        }
 
-                data[j] = aux;
-            }
+        if(i < j)
+        {
+            swap(&data[i], &data[j]);
         }
     }
+
+    return j;
 }
+
+void quickSort(Cidade *data, int low, int high){
+    if(low < high){
+        
+        int pi = partition(data, low, high);
+ 
+        quickSort(data, low, pi - 1);
+ 
+        quickSort(data, pi + 1, high);
+     }
+}
+
 
 Estrada *readFile(const char *nomeArquivo)
 {
@@ -116,7 +148,7 @@ Estrada *readFile(const char *nomeArquivo)
 
     fclose(arq);
 
-    OrdenedByPosition(data->C, data->N);
+    quickSort(data->C,0, data->N - 1);
 
     return data;
 }
