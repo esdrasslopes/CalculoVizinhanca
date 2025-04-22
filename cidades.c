@@ -223,6 +223,11 @@ double calcularMenorVizinhanca(const char *nomeArquivo)
 {
     Estrada *data = readFile(nomeArquivo);
 
+    if(data == NULL)
+    {
+        return -1;
+    }
+
     Vizinhanca *cidadeMenor = menorVizinhanca(data);
 
     double menorVizinhanca = cidadeMenor->vizinhanca;
@@ -235,6 +240,10 @@ double calcularMenorVizinhanca(const char *nomeArquivo)
 char *cidadeMenorVizinhanca(const char *nomeArquivo)
 {
     Estrada *data = readFile(nomeArquivo);
+
+    if(data == NULL){
+        return NULL;
+    }
 
     Vizinhanca *cidadeMenor = menorVizinhanca(data);
 
