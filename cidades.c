@@ -74,6 +74,11 @@ Estrada *readFile(const char *nomeArquivo)
 
     Estrada *data = (Estrada *)malloc(sizeof(Estrada));
 
+    if(data == NULL)
+    {
+        return NULL;
+    }
+
     if(fscanf(arq, "%d", &data->T) != 1)
     {
         free(data);
@@ -105,6 +110,11 @@ Estrada *readFile(const char *nomeArquivo)
     int i = 0;
 
     data->C = (Cidade *)malloc(sizeof(Cidade) * data->N);
+
+    if(data->C == NULL)
+    {
+        return NULL;
+    }
 
     for (i = 0; i < data->N; i++)
     {
@@ -164,6 +174,11 @@ Vizinhanca *menorVizinhanca(Estrada *data)
 {
     Vizinhanca *vizinhancas = (Vizinhanca *)malloc(sizeof(Vizinhanca) * data->N);
 
+    if(vizinhancas == NULL)
+    {
+        return NULL;
+    }
+
     int i;
 
     double soma = 0;
@@ -210,7 +225,12 @@ Vizinhanca *menorVizinhanca(Estrada *data)
         }
     }
 
-    Vizinhanca *resultado = (Vizinhanca*) malloc(sizeof(Vizinhanca));
+    Vizinhanca *resultado = (Vizinhanca*) malloc(sizeof(Vizinhanca));   
+
+    if(resultado == NULL)
+    {
+        return NULL;
+    }
     
     *resultado = vizinhancas[indice];
 
